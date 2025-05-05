@@ -1,0 +1,70 @@
+@use "../../foundation/mixins";
+@use "../../foundation/base";
+@use "../../foundation/variables";
+
+
+
+.p-menu {
+    color: $textblack;
+}
+
+.p-menu__button {
+    display: none;
+    cursor: default;
+
+    @media #{$screen02} {
+        display: block;
+        @include fontsize(34);
+        margin-left: 46px;
+        margin-top: 84px;
+        margin-bottom: 90px;
+    }
+}
+
+.p-menu__category {
+    font-family: 'M+ PLUS 1p';
+    @include fontsize(24);
+    font-weight: 700;
+    margin-left: 46px;
+    margin-bottom: 40px;
+
+    &:hover {
+        color: $hover02;
+    }
+
+    @media #{$screen01} {
+        margin-bottom: 32px;
+    }
+}
+
+.menu {
+    list-style-type: none;
+}
+
+.p-menu__item {
+    font-family: 'M+ PLUS 1p';
+    @include fontsize(20);
+    margin-left: 66px;
+    margin-bottom: 20px;
+    list-style-type: none;
+
+    &:last-child {
+        margin-bottom: 60px;
+
+        @media #{$screen01} {
+            margin-bottom: 48px;
+        }
+    }
+
+    &:hover {
+        color: $hover02;
+    }
+}
+
+.p-menu__block {
+    margin-top: 178px;
+
+    @media #{$screen02} {
+        margin-top: 0;
+    }
+}

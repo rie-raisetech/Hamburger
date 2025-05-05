@@ -1,0 +1,123 @@
+@use "../../foundation/base";
+@use "../../foundation/variables";
+@use "../../foundation/mixins";
+
+
+.p-archive__box {
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media #{$screen01} {
+        flex-direction: row;
+        padding: 10px 35px 10px 43px;
+    }
+
+    @media #{$screen02} {
+        padding: 15px 100px 15px 100px;
+    }
+}
+
+.p-archive__textbox {
+    top: 0;
+    background-color: $brown;
+    color: $white;
+    font-family: 'M+ PLUS 1p';
+    width: 100%;
+    height: auto;
+    padding: 32px 17px 43px 17px;
+
+    @media #{$screen01} {
+        padding: 31px 59px 40px 34px;
+        width: 50%;
+        height: 354px;
+    }
+
+    @media #{$screen02} {
+        padding: 56px 104px 60px 63px;
+        height: 471px;
+    }
+}
+
+.p-archive__heading {
+    @include fontsize(20);
+    font-weight: 700;
+    margin-bottom: 21px;
+
+    @media #{$screen02} {
+        @include fontsize(36);
+        margin-bottom: 44px;
+    }
+}
+
+.p-archive__subheading {
+    @include fontsize(16);
+    font-weight: 700;
+    margin-bottom: 7px;
+
+    @media #{$screen02} {
+        @include fontsize(24);
+        margin-bottom: 13px;
+    }
+}
+
+.p-archive__text {
+    @include fontsize(16);
+    margin-top: 0;
+    margin-bottom: 40px;
+
+    @media #{$screen01} {
+        margin-bottom: 45px;
+    }
+
+    @media #{$screen02} {
+        margin-bottom: 0;
+    }
+
+}
+
+
+.p-archive__link {
+    @include fontsize(16);
+    font-weight: 700;
+    background-color: $white;
+    color: $textblack;
+    width: 163px;
+    height: 42px;
+    border-radius: 999px;
+    align-self: center;
+    margin-right: 7px;
+    transition: opacity 0.3s ease;
+    margin-top: 0;
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    @media #{$screen01} {
+        margin-left: 7px;
+    }
+
+    @media #{$screen02} {
+        width: 292px;
+        height: 76px;
+        margin-left: 13px;
+    }
+}
+
+.p-archive__image {
+    height: 230px;
+    width: 100%;
+
+    @media #{$screen01} {
+        width: 50%;
+        height: 354px;
+    }
+
+    @media #{$screen02} {
+        height: 471px;
+    }
+}

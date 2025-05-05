@@ -1,0 +1,45 @@
+@use "../../foundation/base";
+@use "../../foundation/variables";
+@use "../../foundation/mixins";
+
+.wp-block-quote {
+    width: auto;
+    height: auto;
+    background-color: $backgray;
+    color: $tagblack;
+    margin: 26px 20px 30px 20px;
+    padding: 36px 16px 27px 20px;
+
+    @media #{$screen01} {
+        margin: 56px 60px 60px 60px;
+        padding: 50px 56px 57px 50px;
+    }
+
+    @media #{$screen02} {
+        margin: 56px 100px 60px 100px;
+        padding: 50px 60px 47px 50px;
+    }
+}
+
+.wp-block-quote p {
+    font-family: 'M+ PLUS 1p';
+    @include fontsize(16);
+}
+
+.wp-block-quote {
+    font-family: 'M PLUS 1m';
+    @include fontsize(16);
+
+    @media #{$screen01} {
+        margin-top: 61px;
+    }
+}
+
+.wp-block-quote cite a {
+    text-decoration: underline;
+    color: $blue;
+
+    &:hover {
+        color: $hover02;
+    }
+}

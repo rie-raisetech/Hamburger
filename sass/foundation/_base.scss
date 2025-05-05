@@ -1,0 +1,22 @@
+body {
+  font-family: 'Roboto', 'M+ PLUS 1p', 'M PLUS 1m', sans-serif;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

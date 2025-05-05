@@ -1,0 +1,88 @@
+@use "../../foundation/variables";
+@use "../../foundation/base";
+@use "../../foundation/mixins";
+
+.p-table {
+    font-family: 'M+ PLUS 1p';
+    @include fontsize(16);
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 30px;
+
+    @media #{$screen01} {
+        margin-top: 60px;
+    }
+
+    @media #{$screen02} {
+        margin-top: 50px;
+    }
+}
+
+.p-table__cell {
+    border: 1px solid $textblack;
+    height: 76px;
+    text-align: left;
+    vertical-align: middle;
+    padding: 29px 0 24px 23px;
+
+    @media #{$screen01} {
+        padding-left: 30px;
+    }
+}
+
+.p-table__cell--right {
+    padding-left: 29px;
+
+    @media #{$screen02} {
+        padding-left: 30px;
+    }
+}
+
+.p-table__cell--left {
+    padding: 29px 0 0 23px;
+
+    @media #{screen01} {
+        padding: 29px 0 24px 30px;
+    }
+}
+
+.p-teble__col--left {
+    width: 42%;
+
+    @media #{$screen01} {
+        width: 30%;
+    }
+
+    @media #{$screen02} {
+        width: 32%;
+    }
+}
+
+.p-table__col--right {
+    width: 58%;
+
+    @media #{$screen01} {
+        width: 70%;
+    }
+
+    @media #{$screen02} {
+        width: 68%;
+    }
+}
+
+.p-table__br {
+    display: inline;
+
+    &::before {
+        content: "\A";
+        white-space: pre;
+        display: inline;
+    }
+
+    @media #{$screen01} {
+        &::before {
+            display: none;
+        }
+    }
+}

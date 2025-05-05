@@ -1,0 +1,46 @@
+@use "../../foundation/variables";
+@use "../../foundation/base";
+@use "../../foundation/mixins";
+
+
+
+.p-404 {
+    font-family: 'M+ PLUS 1p';
+    color: $textblack;
+}
+
+.p-404__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.p-404__title {
+    @include fontsize(40);
+}
+
+.p-404__message {
+    @include fontsize(24);
+    margin-top: 60px;
+}
+
+.p-404__link {
+    display: inline-block;
+    @include fontsize(24);
+    font-weight: 700;
+    margin-top: 100px;
+    margin-bottom: 200px;
+    border-radius: 20px;
+    border: 1px solid $textblack;
+    padding: 12px 24px;
+    background-color: $textgray;
+    transition: opacity 0.3s ease;
+    width: auto;
+    &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+}

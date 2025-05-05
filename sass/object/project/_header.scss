@@ -1,0 +1,47 @@
+@use "../../foundation/base";
+@use "../../foundation/variables";
+@use "../../foundation/mixins";
+
+.p-header__title {
+    font-family: "Roboto";
+    color: $textblack;
+    @include fontsize(40);
+    font-weight: 700;
+    margin-top: 43px;
+
+    &:hover {
+        color: $hover;
+    }
+
+    @media #{$screen01} {
+        margin-top: 40px;
+    }
+
+    @media #{$screen02} {
+        @include fontsize(64);
+        margin-top: 66px;
+        margin-bottom: 67px;
+    }
+}
+
+.p-header__button {
+    @include fontsize(20);
+    margin-left: auto;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    &:hover {
+        color: $hover;
+    }
+
+    @media #{$screen01} {
+        @include fontsize(34);
+        top: 20px;
+        right: 25px;
+    }
+
+    @media #{$screen02} {
+        display: none;
+    }
+}

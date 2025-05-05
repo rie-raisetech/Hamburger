@@ -1,0 +1,140 @@
+@use "../../foundation/base";
+@use "../../foundation/variables";
+@use "../../foundation/mixins";
+
+.size-full .wp-image-187 {
+    width: 100% !important;
+    height: auto !important;
+
+    @media #{$screen02} {
+        height: 500px !important;
+    }
+}
+
+.wp-block-media-text {
+    display: grid;
+    gap: 10px;
+    margin-top: 30px;
+    grid-template-columns: 144px auto;
+    padding: 0 !important;
+
+    @media #{$screen01} {
+        grid-template-columns: 306px auto;
+        gap: 21px;
+        margin-top: 60px;
+    }
+
+    @media #{$screen02} {
+        grid-template-columns: 581px auto;
+        gap: 40px;
+        margin-top: 60px;
+    }
+}
+
+.wp-block-media-text.has-media-on-the-right {
+    display: grid;
+    gap: 10px;
+    margin-top: 30px;
+    grid-template-columns: auto 144px;
+
+    @media #{$screen01} {
+        margin-top: 117px;
+        grid-template-columns: auto 306px;
+        gap: 21px;
+    }
+
+    @media #{$screen02} {
+        grid-template-columns: auto 581px;
+        gap: 40px;
+    }
+}
+
+.wp-block-media-text__media .wp-image-187 {
+    height: 89px;
+    width: 144px;
+    margin-top: 0;
+
+    @media #{$screen01} {
+        height: 189px;
+        width: 306px;
+    }
+
+    @media #{$screen02} {
+        height: 358px;
+        width: 581px;
+    }
+}
+
+.wp-block-media-text__content {
+    font-family: 'M+ PLUS 1p';
+    @include fontsize(16);
+
+    height: 176px;
+    margin: 0;
+
+    @media #{$screen01} {
+
+        height: 369px;
+    }
+
+    @media #{$screen02} {
+
+        height: 358px;
+    }
+}
+
+.wp-block-media-text>.wp-block-media-text__content {
+    padding: 0 !important;
+}
+
+.wp-block-media-text>.wp-block-media-text__media {
+    align-self: start !important;
+}
+
+.wp-block-image.foodlist__lead {
+    height: auto !important;
+    width: 100% !important;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    @media #{$screen01} {
+        margin-top: 61px;
+        margin-bottom: 241px;
+    }
+
+    @media #{$screen02} {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+}
+
+
+.foodlist__lead .size-full .wp-image-215 {
+
+    object-fit: cover;
+    object-position: center center;
+    border: 1px solid $textblack;
+}
+
+.wp-block-gallery.is-layout-flex {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 20px !important;
+    width: 100% !important;
+    height: auto !important;
+
+    @media #{$screen01} {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media #{$screen02} {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.wp-block-gallery.is-layout-flex img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+}

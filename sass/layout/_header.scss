@@ -1,0 +1,31 @@
+@use "../foundation/base";
+@use "../foundation/variables";
+@use "../foundation/mixins";
+
+.l-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 215px;
+    background-color: $offwhite;
+    position: relative;
+
+    @media #{$screen01} {
+        height: 217px;
+    }
+}
+
+.l-header__contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media #{$screen02} {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 4%;
+        padding-right: 2%;
+        width: 100%;
+    }
+}

@@ -1,0 +1,31 @@
+@use "../../foundation/variables";
+@use "../../foundation/base";
+@use "../../foundation/mixins";
+
+.p-textbox__block {
+    gap: 16px;
+    padding: 16px;
+}
+
+.p-textbox {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: $black02;
+    font-family: 'M+ PLUS 1p';
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 16px;
+    position: relative;
+}
+
+.p-textbox__title {
+    @include fontsize(22);
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 8px;
+}
+
+.p-textbox__text {
+    @include fontsize(16);
+}

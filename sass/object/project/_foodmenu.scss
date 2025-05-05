@@ -1,0 +1,60 @@
+@use "../../foundation/base";
+@use "../../foundation/variables";
+@use "../../foundation/mixins";
+
+.wp-block-list {
+    font-family: 'M+ PLUS 1p';
+    @include fontsize(16);
+}
+
+ul.wp-block-list {
+    list-style-position: outside;
+    list-style-type: disc !important;
+    padding-left: 20px;
+}
+
+ul.wp-block-list.ul__second {
+    list-style-position: outside;
+    list-style-type: circle !important;
+    padding-left: 20px;
+    margin-left: 18px;
+}
+
+
+ul.wp-block-list li {
+    display: list-item !important;
+}
+
+.p-foodmenu--top {
+    @media #{$screen01} {
+        margin-top: 61px;
+        margin-bottom: 25px;
+        margin-left: 50px;
+    }
+
+    @media #{$screen02} {
+        margin-top: 54px;
+    }
+}
+
+.food__item--last {
+    @media #{$screen01} {
+        margin-bottom: 56px;
+    }
+}
+
+#p-foodmenu--bottom {
+    margin-top: 33px;
+
+    @media #{$screen01} {
+        margin-left: 50px;
+    }
+}
+
+.list__gap {
+    margin-top: 17px;
+}
+
+ol.wp-block-list {
+    padding-left: 25px;
+}

@@ -1,0 +1,56 @@
+@use "../../foundation/base";
+@use "../../foundation/variables";
+@use "../../foundation/mixins";
+
+.p-footer__inner {
+    background-image: url(../images/footer.png);
+    position: relative;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.p-footer__block {
+    color: $white;
+    font-family: 'M+ PLUS 1p';
+    margin-top: 16px;
+
+    @media #{$screen01} {
+        margin-top: 30px;
+    }
+
+    @media #{$screen02} {
+        margin-top: 41px;
+    }
+}
+
+.p-footer__information {
+    @include fontsize(18);
+    margin-bottom: 70px;
+
+    @media #{$screen01} {
+        @include fontsize(20);
+        margin-bottom: 44px;
+    }
+
+    @media #{$screen02} {
+        margin-bottom: 31px;
+    }
+}
+
+.p-footer__copy {
+    @include fontsize(14);
+    margin-left: 29px;
+
+    @media #{$screen01} {
+        margin-left: 54px;
+    }
+
+    @media #{$screen02} {
+        margin-left: 55px;
+    }
+}
+
+.p-footer__information--link:hover {
+    color: $lightgray;
+}

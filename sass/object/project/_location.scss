@@ -1,0 +1,139 @@
+@use "../../foundation/base";
+@use "../../foundation/variables";
+@use "../../foundation/mixins";
+
+.p-location {
+    position: relative;
+    overflow: hidden;
+}
+
+.p-location__map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.p-location__iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.p-location__inner {
+    position: relative;
+    z-index: 1;
+    height: auto;
+    min-height: 691px;
+    padding-bottom: 40px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.55) 0%,
+                rgba(0, 0, 0, 0.55) 50%,
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 0, 0, 0.3) 100%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    @media #{$screen01} {
+
+        min-height: 415px;
+
+        &::before {
+            content: '';
+            background: rgba(0, 0, 0, 0.55);
+        }
+    }
+
+    @media #{$screen02} {
+
+        padding-bottom: 75px;
+
+        &::before {
+            content: '';
+            background: linear-gradient(to right,
+                    rgba(0, 0, 0, 0.55) 0%,
+                    rgba(0, 0, 0, 0.55) 61%,
+                    rgba(0, 0, 0, 0.3) 61%,
+                    rgba(0, 0, 0, 0.3) 100%);
+        }
+    }
+}
+
+.p-location__title {
+    position: relative;
+    font-family: 'M+ PLUS 1p';
+    font-weight: 700;
+    @include fontsize(30);
+    margin-top: 0;
+    margin-left: 2px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+        width: 75px;
+        height: 2px;
+        background-color: $white;
+
+        @media #{$screen02} {
+            bottom: -50px;
+        }
+    }
+
+    @media #{$screen02} {
+        @include fontsize(36);
+    }
+}
+
+.p-location__text {
+    font-family: 'M+ PLUS 1p';
+    @include fontsize(14);
+    font-weight: 700;
+    line-height: 33px;
+    margin-top: 29px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    @media #{$screen02} {
+        @include fontsize(16);
+        margin-top: 109px;
+    }
+}
+
+.p-location__content {
+    position: relative;
+    top: 42px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    z-index: 2;
+    color: $white;
+    padding-bottom: 40px;
+
+    @media #{$screen01} {
+        padding-left: 42px;
+        margin-right: 29px;
+    }
+
+    @media #{$screen02} {
+        width: 61%;
+        top: 86px;
+        padding-left: 119px;
+        padding-right: 134px;
+        margin-bottom: 75px;
+    }
+}

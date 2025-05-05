@@ -1,0 +1,21 @@
+@use "../../foundation/base";
+@use "../../foundation/variables";
+@use "../../foundation/mixins";
+
+.p-bold {
+    display: block;
+    font-family: 'M+ PLUS 1p';
+    @include fontsize(16);
+    color: $textblack;
+    margin-top: 31px;
+    margin-bottom: 69px;
+
+    @media #{$screen01} {
+        margin-top: 61px;
+        margin-bottom: 149px;
+    }
+
+    @media #{$screen02} {
+        margin-bottom: 274px;
+    }
+}

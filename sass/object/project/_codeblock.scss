@@ -1,0 +1,20 @@
+@use "../../foundation/base";
+@use "../../foundation/variables";
+@use "../../foundation/mixins";
+
+
+
+.wp-block-code {
+    font-family: 'M+ PLUS 1p';
+    @include fontsize(16);
+    color: $tagblack;
+    background-color: $backgray;
+    width: 100%;
+    height: 237px;
+    padding: 50px;
+}
+
+
+.wp-block-code code {
+    font-family: 'M+ PLUS 1p';
+}

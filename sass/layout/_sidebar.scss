@@ -1,0 +1,136 @@
+@use "../foundation/base";
+@use "../foundation/variables";
+@use "../foundation/mixins";
+
+.l-sidebar {
+    height: 100%;
+    background-color: $gray;
+    position: fixed;
+    top: 0;
+    right: -328px;
+    width: 328px;
+    transition: right 0.5s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    @media #{$screen01} {
+        right: -367px;
+        width: 367px;
+    }
+
+    @media #{$screen02} {
+        top: 0;
+        right: 0;
+        width: 19%;
+        order: 2;
+        height: auto;
+        display: block;
+        position: relative;
+    }
+}
+
+.l-sidebar::before {
+    content: '';
+    position: absolute;
+    top: 68px;
+    right: 3px;
+    width: 32px;
+    height: 36px;
+    cursor: pointer;
+
+    @media #{screen01} {
+        top: 65px;
+        right: 17px;
+        height: 37px;
+    }
+}
+
+.l-sidebar::after {
+    content: '';
+    position: absolute;
+    top: 68px;
+    right: 3px;
+    width: 32px;
+    height: 36px;
+    pointer-events: none;
+
+    @media #{$screen01} {
+        top: 65px;
+        right: 17px;
+        height: 37px;
+    }
+}
+
+.l-sidebar::after,
+.l-sidebar::before {
+    position: absolute;
+    top: 68px;
+    right: 3px;
+    width: 49px;
+    height: 6px;
+    background: $textblack;
+    transform-origin: center;
+
+    @media #{$screen01} {
+        top: 65px;
+        right: 17px;
+    }
+
+    @media #{$screen02} {
+        content: none;
+    }
+}
+
+.l-sidebar::before {
+    transform: rotate(45deg);
+}
+
+.l-sidebar::after {
+    transform: rotate(-45deg);
+}
+
+.l-sidebar__close {
+    position: absolute;
+    top: 51px;
+    right: 9px;
+    width: 35px;
+    height: 40px;
+    z-index: 10;
+    cursor: pointer;
+
+    @media #{$screen01} {
+        top: 47px;
+        right: 25px;
+        width: 35px;
+        height: 40px;
+    }
+
+    @media #{$screen02} {
+        display: none;
+    }
+}
+
+.l-sidebar.is-active {
+    right: 0;
+}
+
+.js-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.js-overlay.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}

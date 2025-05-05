@@ -1,0 +1,82 @@
+@use "../../foundation/variables";
+@use "../../foundation/base";
+@use "../../foundation/mixins";
+
+.p-search {
+    display: flex;
+    margin-top: 40px;
+    margin-left: 31px;
+    margin-right: 26px;
+    padding: 0;
+
+    @media #{$screen01} {
+        margin-top: 38px;
+        align-items: center;
+    }
+
+    @media #{$screen02} {
+        margin-top: 86px;
+        margin-bottom: 85px;
+    }
+}
+
+.p-search__input {
+    width: 318px;
+    height: 46px;
+    margin-right: 12px;
+    border-radius: 10px 8px 10px 10px;
+    border: 1px solid $textblack;
+    background-color: $white;
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    padding-left: 45px;
+    background-image: url(../images/search.svg);
+
+    @media #{$screen01} {
+        width: 396px;
+        height: 46px;
+        background-position: 12px center;
+        margin-right: 14px;
+    }
+}
+
+.p-search__button {
+    width: 90px;
+    height: 46px;
+    border-radius: 10px;
+    border: 1px solid $textblack;
+    font-family: 'M+ PLUS 1p';
+    color: $textblack;
+    background-color: $lightgray;
+    @include fontsize(16);
+    font-weight: 700;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+    @media #{$screen01} {
+        width: 136px;
+        height: 46px;
+    }
+}
+
+.p-search__results {
+    font-family: 'M+ PLUS 1p';
+    color: $textblack;
+    @include fontsize(24);
+    font-weight: 700;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.p-search__contents {
+    font-family: 'M+ PLUS 1p';
+    color: $textblack;
+    @include fontsize(24);
+    margin-top: 20px;
+    margin-left: 40px;
+
+}
