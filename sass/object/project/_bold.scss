@@ -7,11 +7,11 @@
     font-family: 'M+ PLUS 1p';
     @include fontsize(16);
     color: $textblack;
-    margin-top: 31px;
+    margin-top: 59px;
     margin-bottom: 69px;
 
     @media #{$screen01} {
-        margin-top: 61px;
+        margin-top: 99px;
         margin-bottom: 149px;
     }
 

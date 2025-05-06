@@ -85,7 +85,7 @@
                 </figure>
             <?php endwhile; ?>
 
-            <!-- ページネーションの表示 -->
+          
             <?php if (function_exists('wp_pagenavi')) : ?>
                 <?php wp_pagenavi(array('query' => $custom_query)); ?>
             <?php endif; ?>

@@ -2,8 +2,10 @@
   <div class="c-inner p-footer__inner">
     <div class="c-container p-footer__block">
       <?php
-      $link1 = get_field('footer_information', 50);
-      $link2 = get_field('footer_information2', 50);
+      $page = get_page_by_path('footer');
+      $post_id = $page->ID;
+      $link1 = get_field('footer_information', $post_id);
+      $link2 = get_field('footer_information2', $post_id);
       ?>
       <p class="p-footer__information">
         <?php if ($link1): ?>

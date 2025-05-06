@@ -15,7 +15,7 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
-
+    height: 100%;
     @media #{$screen01} {
         right: -367px;
         width: 367px;

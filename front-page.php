@@ -16,17 +16,20 @@
                     <div class="c-container p-textbox__block">
                         <div class="p-textbox">
                             <h4 class="p-textbox__title">Take Out</h4>
-                            <?php if (get_field('takeout_text', 15)) : ?>
+                            <?php
+                            $page_food = get_page_by_path('foodchoices');
+                            $food_id = $page_food->ID;
+                            if (get_field('takeout_text', $food_id)) : ?>
                                 <p class="p-textbox__text">
-                                    <?php the_field('takeout_text', 15); ?>
+                                    <?php the_field('takeout_text', $food_id); ?>
                                 </p>
                             <?php endif; ?>
                         </div>
                         <div class="p-textbox">
                             <h4 class="p-textbox__title">Take Out</h4>
-                            <?php if (get_field('takeout_text', 15)) : ?>
+                            <?php if (get_field('takeout_text', $food_id)) : ?>
                                 <p class="p-textbox__text">
-                                    <?php the_field('takeout_text', 15); ?>
+                                    <?php the_field('takeout_text', $food_id); ?>
                                 </p>
                             <?php endif; ?>
                         </div>
@@ -41,17 +44,17 @@
                     <div class="c-container p-textbox__block">
                         <div class="p-textbox">
                             <h4 class="p-textbox__title">Eat In</h4>
-                            <?php if (get_field('eatin_text', 15)) : ?>
+                            <?php if (get_field('eatin_text', $food_id)) : ?>
                                 <p class="p-textbox__text">
-                                    <?php the_field('eatin_text', 15); ?>
+                                    <?php the_field('eatin_text', $food_id); ?>
                                 </p>
                             <?php endif; ?>
                         </div>
                         <div class="p-textbox">
                             <h4 class="p-textbox__title">Eat In</h4>
-                            <?php if (get_field('eatin_text', 15)) : ?>
+                            <?php if (get_field('eatin_text', $food_id)) : ?>
                                 <p class="p-textbox__text">
-                                    <?php the_field('eatin_text', 15); ?>
+                                    <?php the_field('eatin_text', $food_id); ?>
                                 </p>
                             <?php endif; ?>
                         </div>
@@ -73,12 +76,15 @@
     <?php endif; ?>
     <div class="c-inner p-location__inner">
         <div class="p-location__content">
-            <?php if (get_field('location_title', 61)) : ?>
-                <h5 class="p-location__title"><?php the_field('location_title', 61); ?></h5>
+            <?php
+            $page_map = get_page_by_path('地図');
+            $map_id = $page_map->ID;
+            if (get_field('location_title', $map_id)) : ?>
+                <h5 class="p-location__title"><?php the_field('location_title', $map_id); ?></h5>
             <?php endif; ?>
-            <?php if (get_field('location_text', 61)) : ?>
+            <?php if (get_field('location_text', $map_id)) : ?>
                 <p class="p-location__text">
-                    <?php the_field('location_text', 61); ?></p>
+                    <?php the_field('location_text', $map_id); ?></p>
             <?php endif; ?>
         </div>
     </div>
