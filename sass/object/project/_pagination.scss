@@ -21,8 +21,8 @@
     }
 
     @media #{$screen02} {
-        margin-top: 150px;
-        margin-bottom: 64px;
+        margin-top: auto;
+        margin-bottom: 64px !important;
     }
 }
 

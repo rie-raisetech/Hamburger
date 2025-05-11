@@ -7,6 +7,23 @@
     @include fontsize(16);
 }
 
+.wp-block-list.p-foodmenu.p-foodmenu--top {
+    margin-top: 61px;
+    margin-bottom: 25px;
+    margin-left: 20px;
+
+    @media #{$screen01} {
+        margin-left: 60px;
+    }
+
+    @media #{$screen02} {
+        margin-top: 54px;
+        margin-left: 100px;
+    }
+}
+
+
+
 ul.wp-block-list {
     list-style-position: outside;
     list-style-type: disc !important;
@@ -25,19 +42,8 @@ ul.wp-block-list li {
     display: list-item !important;
 }
 
-.p-foodmenu--top {
-    @media #{$screen01} {
-        margin-top: 61px;
-        margin-bottom: 25px;
-        margin-left: 50px;
-    }
-
-    @media #{$screen02} {
-        margin-top: 54px;
-    }
-}
-
 .food__item--last {
+    margin-bottom: 26px;
     @media #{$screen01} {
         margin-bottom: 56px;
     }
@@ -45,9 +51,15 @@ ul.wp-block-list li {
 
 #p-foodmenu--bottom {
     margin-top: 33px;
+    margin-left: 20px;
 
     @media #{$screen01} {
-        margin-left: 50px;
+        margin-left: 60px;
+        
+    }
+
+    @media #{$screen02} {
+        margin-left: 100px;
     }
 }
 

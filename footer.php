@@ -16,7 +16,7 @@
           </a>
         <?php endif; ?>
 
-        <?php if ($link1 && $link2): ?>｜<?php endif; ?>
+        <?php if ($link1 && $link2): ?><?php echo esc_html('｜'); ?><?php endif; ?>
         <?php if ($link2): ?>
           <a href="<?php echo esc_url($link2['url']); ?>" class="p-footer__information--link" <?php if ($link2['target']) echo 'target="' . esc_attr($link2['target']) . '"'; ?>>
             <?php echo esc_html($link2['title']); ?>

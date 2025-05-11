@@ -2,9 +2,8 @@
 @use "../../foundation/variables";
 @use "../../foundation/mixins";
 
-
 .wp-block-button {
-    width: 100%;
+    width: calc( 100% - 40px );
     height: 81px;
 
     @media #{$screen01} {
@@ -22,10 +21,21 @@
     color: $textblack;
     background: linear-gradient(90deg, $gray 0%, $lightgray 100%);
     margin-top: 60px;
+    margin-right: 20px;
+    margin-left: 20px;
     transition: opacity 0.3s ease;
+
 
     &:hover {
         opacity: 0.7;
         cursor: pointer;
+    }
+
+    @media #{$screen01} {
+        margin-left: 60px;
+    }
+
+    @media #{$screen02} {
+        margin-left: 100px;
     }
 }

@@ -1,0 +1,13 @@
+.l-main {
+    min-height: calc(100vh - 215px - 150px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media #{$screen01} {
+        min-height: calc(100vh - 217px - 150px);
+    }
+    @media #{$screen02} {
+        padding-bottom: 64px;
+    }
+  }
+  

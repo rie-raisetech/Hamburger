@@ -10,7 +10,8 @@
 
 </head>
 
-<body>
+<body <?php body_class(); ?>>
+    <?php wp_body_open(); ?>
     <div class="c-layout">
 
         <article class="c-layout__main">
@@ -19,7 +20,8 @@
                     <button class="c-button p-header__button js-hamburger">
                         <span>Menu</span>
                     </button>
-                    <h1 class="p-header__title"><a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a></h1>
+                    <h1 class="p-header__title"><a href="<?php echo esc_url(home_url('/')); ?>"><?php echo esc_html(get_bloginfo('name')); ?>
+                        </a></h1>
 
                     <?php get_search_form(); ?>
                 </div>

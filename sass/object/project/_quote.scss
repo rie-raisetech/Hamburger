@@ -24,9 +24,10 @@
 .wp-block-quote p {
     font-family: 'M+ PLUS 1p';
     @include fontsize(16);
+    margin: 0;
 }
 
-.wp-block-quote {
+.wp-block-quote cite {
     font-family: 'M PLUS 1m';
     @include fontsize(16);
 
@@ -42,4 +43,8 @@
     &:hover {
         color: $hover02;
     }
+}
+
+.wp-block-quote {
+    border-left: none;
 }

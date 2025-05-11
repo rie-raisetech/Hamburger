@@ -2,12 +2,24 @@
 @use "../../foundation/variables";
 @use "../../foundation/mixins";
 
-.size-full .wp-image-187 {
-    width: 100% !important;
-    height: auto !important;
+
+.foodlist__main img {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    @media #{$screen01} {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
 
     @media #{$screen02} {
-        height: 500px !important;
+        height: 500px;
+        padding-right: 100px;
+        padding-left: 100px;
     }
 }
 
@@ -16,18 +28,19 @@
     gap: 10px;
     margin-top: 30px;
     grid-template-columns: 144px auto;
-    padding: 0 !important;
 
     @media #{$screen01} {
         grid-template-columns: 306px auto;
         gap: 21px;
         margin-top: 60px;
+    
     }
 
     @media #{$screen02} {
         grid-template-columns: 581px auto;
         gap: 40px;
         margin-top: 60px;
+
     }
 }
 
@@ -41,11 +54,13 @@
         margin-top: 117px;
         grid-template-columns: auto 306px;
         gap: 21px;
+      
     }
 
     @media #{$screen02} {
         grid-template-columns: auto 581px;
         gap: 40px;
+     
     }
 }
 
@@ -83,6 +98,10 @@
     }
 }
 
+.p-content .wp-block-media-text__content p {
+    margin: 0;
+}
+
 .wp-block-media-text>.wp-block-media-text__content {
     padding: 0 !important;
 }
@@ -91,50 +110,70 @@
     align-self: start !important;
 }
 
-.wp-block-image.foodlist__lead {
-    height: auto !important;
-    width: 100% !important;
-    display: block;
-    margin-top: 30px;
-    margin-bottom: 30px;
+.foodlist__box {
+    padding-right: 20px;
+    padding-left: 20px;
 
     @media #{$screen01} {
-        margin-top: 61px;
-        margin-bottom: 241px;
+        padding-right: 60px;
+        padding-left: 60px;
     }
 
     @media #{$screen02} {
-        margin-top: 60px;
-        margin-bottom: 60px;
+        padding-right: 100px;
+        padding-left: 100px;
     }
 }
 
+.foodlist__lead {
+    margin: 30px 34px;
 
-.foodlist__lead .size-full .wp-image-215 {
+    @media #{$screen01} {
+        margin: 61px 66px 241px 67px;
+    }
 
+    @media #{$screen02} {
+        margin: 60px 387px 60px 386px;
+    }
+}
+
+.foodlist__lead img {
+    height: auto;
+    width: 100%;
     object-fit: cover;
     object-position: center center;
     border: 1px solid $textblack;
 }
 
-.wp-block-gallery.is-layout-flex {
+
+.wp-block-gallery {
     display: grid !important;
     grid-template-columns: 1fr;
     gap: 20px !important;
     width: 100% !important;
     height: auto !important;
+    padding-right: 20px;
+    padding-left: 20px;
 
     @media #{$screen01} {
         grid-template-columns: repeat(2, 1fr);
+        padding-right: 60px;
+        padding-left: 60px;
     }
 
     @media #{$screen02} {
         grid-template-columns: repeat(3, 1fr);
+        padding-right: 100px;
+        padding-left: 100px;
     }
 }
 
-.wp-block-gallery.is-layout-flex img {
+.wp-block-gallery img {
     width: 100% !important;
     height: auto !important;
     display: block !important;
+    object-fit: cover;
+    object-position: center center;
+    border: 1px solid $textblack;
 }
+

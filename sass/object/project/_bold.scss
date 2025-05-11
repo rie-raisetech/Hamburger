@@ -2,7 +2,7 @@
 @use "../../foundation/variables";
 @use "../../foundation/mixins";
 
-.p-bold {
+.p-content .p-bold {
     display: block;
     font-family: 'M+ PLUS 1p';
     @include fontsize(16);

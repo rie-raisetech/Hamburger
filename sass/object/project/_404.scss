@@ -27,6 +27,14 @@
     margin-top: 60px;
 }
 
+.p-404__message--post {
+    font-family: 'M+ PLUS 1p';
+    color: $textblack;
+    @include fontsize(24);
+    margin-top: 60px;
+    margin-left: 40px;
+}
+
 .p-404__link {
     display: inline-block;
     @include fontsize(24);

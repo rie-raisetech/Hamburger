@@ -69,7 +69,15 @@
     @include fontsize(24);
     font-weight: 700;
     margin-top: 40px;
-    margin-left: 40px;
+    margin-left: 22px;
+
+    @media #{$screen01} {
+        margin-left: 42px;
+    }
+
+    @media #{$screen02} {
+        margin-left: 100px;
+    }
 }
 
 .p-search__contents {
@@ -77,6 +85,14 @@
     color: $textblack;
     @include fontsize(24);
     margin-top: 20px;
-    margin-left: 40px;
+    margin-left: 22px;
+
+    @media #{$screen01} {
+        margin-left: 42px;
+    }
+
+    @media #{$screen02} {
+        margin-left: 100px;
+    }
 
 }

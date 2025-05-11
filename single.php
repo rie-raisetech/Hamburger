@@ -11,16 +11,28 @@
                         : get_template_directory_uri() . '/images/single2.jpg';
                     ?>
                     <div class="c-inner p-card__inner p-card__inner--single" style="background-image: url('<?php echo esc_url($image_url); ?>');">
-                        <h1 class="p-card__title"><?php the_title(); ?></h1>
+                        <h1 class="p-card__title"><?php echo esc_html(get_the_title()); ?></h1>
                     </div>
                 </div>
-
                 <div class="p-content">
-                    <?php the_content(); ?>
+                    <?php echo wp_kses_post(get_the_content()); ?>
                 </div>
-
+                <div class="p-tags">
+                    <?php the_tags('<span class="tag-title">Tags: </span>', ', ', ''); ?>
+                </div>
+                <?php
+                if (is_single() && strpos(get_the_content(), '<!--nextpage-->') !== false) {
+                    wp_link_pages(array(
+                        'before' => '<div class="page-links">' . __('Pages:', 'hamburger'),
+                        'after'  => '</div>',
+                        'link_before' => '<span>',
+                        'link_after' => '</span>',
+                    ));
+                }
+                ?>
         <?php endwhile;
     endif; ?>
+
 </main>
 </article>
 <?php get_sidebar(); ?>

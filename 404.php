@@ -5,7 +5,7 @@
     <div class="p-404__inner">
       <h1 class="p-404__title">404 Not Found</h1>
       <p class="p-404__message">お探しのページは見つかりませんでした。</p>
-      <a href="<?php echo home_url(); ?>" class="p-404__link">トップページへ戻る</a>
+      <a href="<?php echo esc_url(home_url()); ?>" class="p-404__link">トップページへ戻る</a>
     </div>
   </section>
 </main>

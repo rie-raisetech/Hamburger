@@ -1,10 +1,28 @@
 <?php
-function hamburger_theme_setup()
+
+function theme_setup()
 {
   add_theme_support('title-tag');
   add_theme_support('post-thumbnails');
+  add_theme_support('automatic-feed-links');
+  add_theme_support('responsive-embeds');
+  add_theme_support('custom-logo');
+  add_theme_support('custom-header');
+  add_theme_support('custom-background');
+  add_theme_support('align-wide');
+  add_theme_support('html5', array(
+    'search-form',
+    'comment-form',
+    'comment-list',
+    'gallery',
+    'caption',
+    'widgets',
+  ));
+  add_theme_support('wp-block-styles');
+  add_theme_support('editor-styles');
+  add_editor_style('editor-style.css');
 }
-add_action('after_setup_theme', 'hamburger_theme_setup');
+add_action('after_setup_theme', 'theme_setup');
 
 function add_preconnect_links()
 {
@@ -22,12 +40,11 @@ function my_enqueue_style()
 }
 add_action('wp_enqueue_scripts', 'my_enqueue_style');
 
-
 function register_my_menus()
 {
   register_nav_menus(array(
-    'menu_category' => 'カテゴリー',
-    'menu_item' => 'メニュー'
+    'menu_category' => __('カテゴリー', 'hamburger'),
+    'menu_item' => __('メニュー', 'hamburger'),
   ));
 }
 add_action('init', 'register_my_menus');
@@ -40,14 +57,12 @@ class Custom_Menu_Walker extends Walker_Nav_Menu
       $output .= '<ul class="p-menu__list">';
     }
   }
-
   function end_lvl(&$output, $depth = 0, $args = array())
   {
     if ($depth === 0) {
       $output .= '</ul>';
     }
   }
-
   function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
   {
     if ($depth === 0) {
@@ -59,35 +74,53 @@ class Custom_Menu_Walker extends Walker_Nav_Menu
   function end_el(&$output, $item, $depth = 0, $args = array()) {}
 }
 
-function register_custom_post_type()
+function hamburger_register_block_styles()
 {
-  register_post_type('hamburger', array(
-    'label'         => 'ハンバーガー',
-    'public'        => true,
-    'menu_position' => 5,
-    'has_archive'   => true,
-    'supports'      => array('title', 'editor', 'thumbnail'),
-    'rewrite'       => array('slug' => 'hamburger'),
-    'show_in_rest'  => true,
-    'taxonomies' => array('category'),
-  ));
+  register_block_style(
+    'core/paragraph',
+    [
+      'name'         => 'fancy-paragraph',
+      'label'        => __('Fancy Paragraph', 'hamburger'),
+      'inline_style' => '.is-style-fancy-paragraph { color: red; font-weight: bold; }',
+    ]
+  );
 }
-add_action('init', 'register_custom_post_type');
+add_action('init', 'hamburger_register_block_styles');
 
-
-function hamburger_custom_search_filter($query)
+function hamburger_register_block_patterns()
 {
-  if (!is_admin() && $query->is_main_query() && $query->is_search()) {
-    if (isset($_GET['post_type']) && $_GET['post_type'] === 'hamburger') {
+  register_block_pattern(
+    'hamburger/hero-section',
+    [
+      'title'       => __('Hero Section', 'hamburger'),
+      'description' => __('A simple hero section with heading and paragraph.', 'hamburger'),
+      'content'     => "<!-- wp:heading --><h2>Welcome!</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>This is a custom pattern.</p><!-- /wp:paragraph -->",
+    ]
+  );
+}
+add_action('init', 'hamburger_register_block_patterns');
+
+function hamburger_customize_main_query($query)
+{
+  if (!is_admin() && $query->is_main_query()) {
+
+    if ($query->is_tag()) {
+      $query->set('post_type', ['post', 'hamburger']);
+      $query->set('posts_per_page', 3);
+    }
+
+    if ($query->is_category()) {
+      $query->set('post_type', ['post', 'hamburger']);
+      $query->set('posts_per_page', 3);
+    }
+
+    if ($query->is_search() && isset($_GET['post_type']) && $_GET['post_type'] === 'hamburger') {
       $query->set('post_type', 'hamburger');
 
       $search_term = $query->get('s');
-
-
       $category = get_term_by('name', $search_term, 'category');
 
       if ($category) {
-
         $query->set('s', '');
         $query->set('tax_query', array(
           array(
@@ -100,4 +133,11 @@ function hamburger_custom_search_filter($query)
     }
   }
 }
-add_action('pre_get_posts', 'hamburger_custom_search_filter');
+add_action('pre_get_posts', 'hamburger_customize_main_query');
+
+function hamburger_register_taxonomies()
+{
+  register_taxonomy_for_object_type('post_tag', 'hamburger');
+  register_taxonomy_for_object_type('category', 'hamburger');
+}
+add_action('init', 'hamburger_register_taxonomies');

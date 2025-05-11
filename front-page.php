@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-
-
 <main class="l-main">
     <div class="p-card">
         <div class="c-inner p-card__inner"></div>
@@ -18,10 +16,10 @@
                             <h4 class="p-textbox__title">Take Out</h4>
                             <?php
                             $page_food = get_page_by_path('foodchoices');
-                            $food_id = $page_food->ID;
+                            $food_id = $page_food ? $page_food->ID : null;
                             if (get_field('takeout_text', $food_id)) : ?>
                                 <p class="p-textbox__text">
-                                    <?php the_field('takeout_text', $food_id); ?>
+                                    <?php echo esc_html(get_field('takeout_text', $food_id)); ?>
                                 </p>
                             <?php endif; ?>
                         </div>
@@ -29,7 +27,7 @@
                             <h4 class="p-textbox__title">Take Out</h4>
                             <?php if (get_field('takeout_text', $food_id)) : ?>
                                 <p class="p-textbox__text">
-                                    <?php the_field('takeout_text', $food_id); ?>
+                                    <?php echo esc_html(get_field('takeout_text', $food_id)); ?>
                                 </p>
                             <?php endif; ?>
                         </div>
@@ -46,7 +44,7 @@
                             <h4 class="p-textbox__title">Eat In</h4>
                             <?php if (get_field('eatin_text', $food_id)) : ?>
                                 <p class="p-textbox__text">
-                                    <?php the_field('eatin_text', $food_id); ?>
+                                    <?php echo esc_html(get_field('eatin_text', $food_id));  ?>
                                 </p>
                             <?php endif; ?>
                         </div>
@@ -54,7 +52,7 @@
                             <h4 class="p-textbox__title">Eat In</h4>
                             <?php if (get_field('eatin_text', $food_id)) : ?>
                                 <p class="p-textbox__text">
-                                    <?php the_field('eatin_text', $food_id); ?>
+                                    <?php echo esc_html(get_field('eatin_text', $food_id)); ?>
                                 </p>
                             <?php endif; ?>
                         </div>
@@ -65,29 +63,43 @@
     </div>
 </main>
 <section class="c-container p-location">
-    <?php if (get_field('location_map', 61)) : ?>
+    <?php
+    $page_map = get_page_by_path('map');
+    $map_id = $page_map ? $page_map->ID : null;
+    if (get_field('location_map', $map_id)) : ?>
         <div class="p-location__map">
-            <?php
-            $map_iframe = get_field('location_map', 61);
-            $map_iframe = str_replace('<iframe', '<iframe class="p-location__iframe"', $map_iframe);
-            echo $map_iframe;
-            ?>
+        <?php
+        $map_iframe = get_field('location_map', $map_id);
+        $map_iframe = str_replace('<iframe', '<iframe class="p-location__iframe"', $map_iframe);
+        $allowed_html = array(
+            'iframe' => array(
+                'src' => true,
+                'width' => true,
+                'height' => true,
+                'frameborder' => true,
+                'allowfullscreen' => true,
+                'class' => true
+            ),
+        );
+        echo wp_kses($map_iframe, $allowed_html);
+    else :
+        echo 'マップが設定されていません。';
+    endif;
+        ?>
         </div>
-    <?php endif; ?>
-    <div class="c-inner p-location__inner">
-        <div class="p-location__content">
-            <?php
-            $page_map = get_page_by_path('地図');
-            $map_id = $page_map->ID;
-            if (get_field('location_title', $map_id)) : ?>
-                <h5 class="p-location__title"><?php the_field('location_title', $map_id); ?></h5>
-            <?php endif; ?>
-            <?php if (get_field('location_text', $map_id)) : ?>
-                <p class="p-location__text">
-                    <?php the_field('location_text', $map_id); ?></p>
-            <?php endif; ?>
+
+        <div class="c-inner p-location__inner">
+            <div class="p-location__content">
+                <?php
+                if (get_field('location_title', $map_id)) : ?>
+                    <h5 class="p-location__title"><?php echo esc_html(get_field('location_title', $map_id)); ?></h5>
+                <?php endif; ?>
+                <?php if (get_field('location_text', $map_id)) : ?>
+                    <p class="p-location__text">
+                        <?php echo esc_html(get_field('location_text', $map_id)); ?></p>
+                <?php endif; ?>
+            </div>
         </div>
-    </div>
 </section>
 </article>
 

@@ -1,3 +1,55 @@
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignright {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.alignleft {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.wp-caption {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 100%;
+}
+
+.wp-caption-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.sticky {
+    background-color: #f0f8ff;
+    border: 2px solid #0073aa;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.gallery-caption {
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    margin-top: 5px;
+}
+.bypostauthor {
+    font-style: italic;
+    font-size: 14px;
+    color: #777;
+}
+
+
 @import "foundation/base";
 @import "foundation/mixins";
 @import "foundation/variables";
@@ -6,7 +58,7 @@
 @import "layout/header";
 @import "layout/sidebar";
 @import "layout/footer";
-@import "layout/inner";
+@import "layout/main";
 
 
 @import "object/component/layout";
@@ -37,3 +89,4 @@
 @import "object/project/button";
 @import "object/project/bold";
 @import "object/project/404";
+@import "object/project/tags";

@@ -1,0 +1,44 @@
+@use "../../foundation/base";
+@use "../../foundation/variables";
+@use "../../foundation/mixins";
+
+.p-tags {
+    margin-top: 100px;
+    font-family: 'M+ PLUS 1p';
+    @include fontsize(16);
+    color: $textblack;
+
+    padding-left: 20px;
+    padding-bottom: 75px;
+
+    @media #{$screen01} {
+
+        padding-left: 60px;
+    }
+
+    @media #{$screen02} {
+        padding-left: 100px;
+        padding-bottom: 100px;
+    }
+}
+
+.p-tags .tag-title {
+    font-weight: bold;
+}
+
+.p-tags a {
+
+    text-decoration: none;
+}
+
+.p-tags a:hover {
+    color: $lightgray;
+}
+
+.p-content__none {
+    font-family: 'M+ PLUS 1p';
+    color: $textblack;
+    @include fontsize(24);
+    margin-top: 60px;
+    margin-left: 40px;
+}

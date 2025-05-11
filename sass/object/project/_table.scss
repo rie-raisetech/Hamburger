@@ -5,17 +5,24 @@
 .p-table {
     font-family: 'M+ PLUS 1p';
     @include fontsize(16);
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
     margin-top: 30px;
+    margin-right: 20px;
+    margin-left: 20px;
 
     @media #{$screen01} {
         margin-top: 60px;
+        margin-right: 60px;
+        margin-left: 60px;
     }
 
     @media #{$screen02} {
         margin-top: 50px;
+        margin-right: 100px;
+        margin-left: 100px;
     }
 }
 
@@ -84,5 +91,13 @@
         &::before {
             display: none;
         }
+    }
+}
+
+.u-show-only-mobile {
+    display: inline;
+
+    @media #{$screen01} {
+        display: none;
     }
 }
